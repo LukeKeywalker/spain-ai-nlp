@@ -1,0 +1,34 @@
+(item description):> Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.
+====== ANSWERS ======
+=====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Round neck dress with long sleeves
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Round neck dress with long sleeves
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Round neck dress with long sleeves
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>V-neck dress with long
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Jacket with a high collar
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Dress with a round neck
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Short dress with a V-
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Round neck T-shirt with
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED VELVET DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Round neck
+====================
+<|startoftext|><|startofdesc|>Long sleeve dress with a surplice V-neckline. Featuring an elastic inner waist and contrast sequin appliqués.<|endofdesc|><|startofname|>SEQUINNED DRESS<|endofname|><|endoftext|>
+<|startoftext|><|startofdesc|>Long sleeve dress with a V
+====================
+
