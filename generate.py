@@ -45,7 +45,7 @@ gpt2.load_gpt2(
 )
 
 while True:
-    prompt = input("(>^_^)> ");
+    prompt = input("(>^_^)> ")
     outputs = generate_model_outputs(prompt)
     answers = sorted(
         list(
@@ -56,7 +56,8 @@ while True:
                         [extract_answer(output) for output in outputs if output is not None]
                     )
                 )
-            )),
+            )
+        ),
         key=lambda x: answer_quality(x, prompt)
     )[:NUMBER_OF_ANSWERS_SELECTED]
 
