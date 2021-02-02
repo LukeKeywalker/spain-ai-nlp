@@ -3,10 +3,10 @@ Solution of Spain AI NLP Challenge 2020
 
 ## Requirements:
 
-* Python 3.7
-* pip3 install gpt-2-simple
-* pip3 install tensorflow==1.15
-* pip3 install pandas
+* Python 3 installed
+* `pip3 install gpt-2-simple`
+* `pip3 install tensorflow==1.15`
+* `pip3 install pandas`
 
 ## Running the model
 
