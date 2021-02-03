@@ -9,9 +9,13 @@ if not os.path.isdir(os.path.join("models", model_name)):
 
 sess = gpt2.start_tf_sess()
 gpt2.finetune(sess,
-              'data/trainset.txt',
-              model_name=model_name,
+              dataset='data/trainset.txt',
+              run_name='model-2',
               # restore_from='fresh',
-              run_name='spain-ai-nlp',
-              save_every=100,
-              steps=9000)  # steps is max number of training steps
+              learning_rate=0.0002,
+              save_every=1000,
+              multi_gpu=True,
+              batch_size=2,
+              accumulate_gradients=False,
+              use_memory_saving_gradients=True,
+              steps=10000)

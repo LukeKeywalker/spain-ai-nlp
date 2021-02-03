@@ -34,7 +34,7 @@ def generate_model_outputs(input):
         nsamples=NUMBER_OF_ANSWERS_GENERATED,
         batch_size=10,
         prefix=description,
-        run_name="spain-ai-nlp",
+        run_name="model-1",
         return_as_list=True,
         seed=666
     )
@@ -205,7 +205,7 @@ def load_model():
     gpt2.load_gpt2(
         tf_session,
         checkpoint_dir='models',
-        run_name='spain-ai-nlp',
+        run_name='model-1',
         multi_gpu=True
     )
 
