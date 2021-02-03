@@ -18,11 +18,8 @@ Solution of Spain AI NLP Challenge 2020
 * if answer generation takes too long, reduce `NUMBER_OF_ANSWERS_GENERATED` constant in `generate.py`
 
 ## Resources
-Notebook about training GPT2 in collab
-https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce#scrollTo=LdpZQXknFNY3
+[Notebook about training GPT2 in collab](https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce#scrollTo=LdpZQXknFNY3)
 
-Repository with gpt2-simple methods:
-https://github.com/minimaxir/gpt-2-simple/blob/master/gpt_2_simple/gpt_2.py
+[Repository with gpt2-simple methods](https://github.com/minimaxir/gpt-2-simple/blob/master/gpt_2_simple/gpt_2.py)
 
-Huggingface examples:
-https://huggingface.co/transformers/examples.html#causal-lm-fine-tuning-on-gpt-gpt-2-masked-lm-fine-tuning-on-bert-roberta
+[Huggingface examples](https://huggingface.co/transformers/examples.html#causal-lm-fine-tuning-on-gpt-gpt-2-masked-lm-fine-tuning-on-bert-roberta)
