@@ -7,8 +7,8 @@ import gpt_2_simple as gpt2
 import pandas as pd
 
 ANSWER_PATTERN = re.compile(r'<\|startofname\|>(.+?)<\|endofname\|>')
-NUMBER_OF_ANSWERS_GENERATED = 10
-NUMBER_OF_ANSWERS_SELECTED = 10
+NUMBER_OF_ANSWERS_GENERATED = 4
+NUMBER_OF_ANSWERS_SELECTED = 4
 SUBMISSION_ROW = '{}\n'
 
 # make TF less talkative
@@ -32,9 +32,9 @@ def generate_model_outputs(input):
         temperature=1.0,
         length=60,
         nsamples=NUMBER_OF_ANSWERS_GENERATED,
-        batch_size=10,
+        batch_size=4,
         prefix=description,
-        run_name="model-1",
+        run_name="model-2",
         return_as_list=True,
         seed=666
     )
@@ -185,8 +185,7 @@ def generate_submission():
     with ap.alive_bar(len(test_descriptions), bar='filling') as bar:
         names = [generate_item_name_candidates(description, index, bar)
                  for (index, description)
-                 in zip(range(1, len(descriptions) + 1), descriptions)
-                 ]
+                 in zip(range(1, len(descriptions) + 1), descriptions)]
 
     with open(submission_file_path, 'w') as file:
         file.write(SUBMISSION_ROW.format('name'))
@@ -204,8 +203,8 @@ def parse_arguments():
 def load_model():
     gpt2.load_gpt2(
         tf_session,
-        checkpoint_dir='models',
-        run_name='model-1',
+        checkpoint_dir='checkpoint',
+        run_name='model-2',
         multi_gpu=True
     )
 
