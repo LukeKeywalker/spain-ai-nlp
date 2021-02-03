@@ -9,25 +9,21 @@ def load_dataset():
 
 
 def sanitize(sample):
-
     if sample.startswith('"') and sample.endswith('"'):
         sample = sample[1:-1]
 
-    sample = sample             \
-        .replace('<br>', '')    \
-        .replace('</br>', '')   \
-        .replace('<br/>', '')   \
-        .upper()                \
-        .replace('.', '')       \
-        .replace(',', '')
-
-    return sample
+    return sample \
+        .replace('<br>', '') \
+        .replace('</br>', '') \
+        .replace('<br/>', '') \
+        .replace('|', '') \
+        .upper()
 
 
 def process_dataset(data):
     sample = '<|startoftext|> <|startofdesc|> {0} <|endofdesc|> <|startofname|> {1} <|endofname|> <|endoftext|>'
     data['processed'] = data.apply(
-        lambda row: sanitize(sample.format(row['description'], row['name'])),
+        lambda row: sample.format(sanitize(row['description']), row['name']),
         axis=1
     )
     return data
