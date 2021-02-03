@@ -15,16 +15,3 @@ gpt2.finetune(sess,
               run_name='spain-ai-nlp',
               save_every=100,
               steps=9000)  # steps is max number of training steps
-
-while True:
-    description = "<|startoftext|><|startofdesc|>{}<|endofdesc|><|startofname|>".format(input("(item description):> "))
-    print("====== ANSWERS ======\n=====================")
-    gpt2.generate(
-        sess,
-        temperature=0.5,
-        length=40,
-        nsamples=10,
-        batch_size=10,
-        prefix=description,
-        run_name="spain-ai-nlp"
-    )

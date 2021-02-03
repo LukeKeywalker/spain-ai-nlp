@@ -25,8 +25,8 @@ def generate_model_outputs(input):
     :param input: gpt-2 prompt (starting text)
     :return: list of model results
     """
-    gpt_2_prompt = "<|startoftext|><|startofdesc|>{}<|endofdesc|><|startofname|>"
-    description = gpt_2_prompt.format(input)
+    gpt_2_prompt = "<|startoftext|> <|startofdesc|> {} <|endofdesc|> <|startofname|>"
+    description = gpt_2_prompt.format(sanitize_input(input))
     return gpt2.generate(
         tf_session,
         temperature=1.0,
@@ -40,7 +40,7 @@ def generate_model_outputs(input):
     )
 
 
-def sanitize(item):
+def sanitize_answer(item):
     """
     Cleans up answer given by a model.
     - removes commas (reserved for item name separation in submission file)
@@ -48,11 +48,35 @@ def sanitize(item):
     :param item:
     :return:
     """
-    item = item.upper().replace(',', '')
+    item = item             \
+        .upper()            \
+        .replace(',', '')   \
+        .strip()
+
     if item.endswith('.'):
         return item[0:-1]
     else:
         return item
+
+
+def sanitize_input(input):
+    """
+    TODO: share the same method between prepare-training-set.py and here
+    :param input:
+    :return:
+    """
+    if input.startswith('"') and input.endswith('"'):
+        input = input[1:-1]
+
+    input = input \
+        .replace('<br>', '') \
+        .replace('</br>', '') \
+        .replace('<br/>', '') \
+        .upper() \
+        .replace('.', '') \
+        .replace(',', '')
+
+    return input
 
 
 def extract_answer(model_output):
@@ -64,7 +88,7 @@ def extract_answer(model_output):
     """
     matched_answers = re.findall(ANSWER_PATTERN, model_output)
     if len(matched_answers) > 0:
-        return sanitize(matched_answers[0])
+        return sanitize_answer(matched_answers[0])
     else:
         return None
 
@@ -81,7 +105,7 @@ def answer_quality(answer, prompt):
     prompt_word_list = prompt.upper().split(" ")
     number_of_common_words = len(list(set(prompt_word_list) & set(answer_word_list)))
 
-    return 1.0 - number_of_common_words / float(len(answer_word_list))
+    return number_of_common_words / float(len(answer_word_list))
 
 
 def without_duplicates(items):
@@ -124,7 +148,8 @@ def select_answers(outputs, prompt):
                 )
             )
         ),
-        key=lambda x: answer_quality(x, prompt)
+        key=lambda x: answer_quality(x, prompt),
+        reverse=True
     )[: NUMBER_OF_ANSWERS_SELECTED]
     return answers
 
