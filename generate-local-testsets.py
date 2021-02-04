@@ -23,18 +23,18 @@ for i in range(100):
     random_samples = select_random_samples(NUMBER_OF_RANDOM_SAMPLES, dataset)
 
     try:
-        os.makedirs('data/local-testsets')
+        os.makedirs('data/testsets')
     except OSError as e:
         pass
 
     utils.save_dataframe_column(
         data=random_samples,
         column_name='name',
-        file_path='data/local-testsets/{}-names.txt'.format(i),
+        file_path='data/testsets/{}-names.txt'.format(i),
         header=True)
     utils.save_dataframe_column(
         data=random_samples,
         column_name='description',
-        file_path='data/local-testsets/{}-descriptions.txt'.format(i),
+        file_path='data/testsets/{}-descriptions.txt'.format(i),
         header=True
     )

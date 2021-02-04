@@ -1,5 +1,6 @@
 import csv
 import pandas as pd
+import numpy as np
 
 
 def load_dataset():
@@ -44,3 +45,34 @@ def save_dataframe_column(data, column_name, file_path, header=False):
         quotechar="",
         escapechar="\\"
     )
+
+
+def discountedCumulativeGain(result, quality):
+    acc = []
+    for idx, val in enumerate([quality(x) for x in result]):
+        ntor = 2**val - 1
+        dtor = np.log2(idx + 2)
+        score = ntor/dtor
+        acc.append(score)
+    return sum(acc)
+
+
+def load_test_descriptions(test_descriptions_file_path):
+    test_descriptions = pd.read_csv(test_descriptions_file_path, sep="~")
+    return test_descriptions['description'].tolist()
+
+
+def load_test_names(names_file_path):
+    test_names = pd.read_csv(names_file_path, sep="~", dtype='string')
+    return test_names['name'].tolist()
+
+
+def normalizedDiscountedCumulativeGain(result, quality):
+    dcg = discountedCumulativeGain(result, quality)
+    if dcg == 0:
+        return 0
+    idcg = discountedCumulativeGain(sorted(result, key=quality, reverse=True), quality)
+    ndcg = dcg / idcg
+    return ndcg
+
+
