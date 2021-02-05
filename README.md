@@ -12,7 +12,7 @@ Solution of Spain AI NLP Challenge 2020
 ## Running the model in the interactive mode
 
 * [Download one of the fine tuned models](https://drive.google.com/drive/folders/1AYZdN7lrQj6zFdVpFtaX3afVzZ9Iw7Fz?usp=sharing)
-* Extract archive to `models/` directory
+* Extract model archive to the `checkpoint/` directory
 * run `python3 generate.py --mode=interactive`
 * type in item description after the `(>^_^)>` prompt
 * if answer generation takes too long, reduce `NUMBER_OF_ANSWERS_GENERATED` constant in `generate.py`
