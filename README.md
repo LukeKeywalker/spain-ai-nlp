@@ -35,7 +35,7 @@ Generate answers of `model-2.1` for all 10 test datasets in parallel on two GPUs
 for I in {1..5}; do python3 ./generate.py --model=2.1 --benchmark=$I --gpu=0; done
 for I in {6..10}; do python3 ./generate.py --model=2.1 --benchmark=$I --gpu=1; done
 ```
-* Refer to `model_benchmark.ipynb` in order to analyze quality of generated answers
+* Refer to [model_benchmark](https://github.com/LukeKeywalker/spain-ai-nlp/blob/main/model_benchmark.ipynb) notebook in order to analyze quality of generated answers
 
 ## Generating `submission.csv` file
 
