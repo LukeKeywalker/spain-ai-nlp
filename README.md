@@ -9,6 +9,7 @@ Solution of Spain AI NLP Challenge 2020
 * `pip3 install pandas`
 * `pip3 install numpy`
 * `pip3 install nltk`
+* `pip3 install seaborn`
 * `pip3 install alive-progress`
 
 ## Installing finetuned GPT-2 model
