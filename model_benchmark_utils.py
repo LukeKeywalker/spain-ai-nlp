@@ -63,7 +63,7 @@ def evaluate_test_set(test_set, sorting):
 
     scored_test_set['score'] = scored_test_set[['name', 'answers']].apply(
         lambda x: discountedCumulativeGain(
-            sorted(list(x['answers'].split(', ')), key=sorting),
+            sorted(list(x['answers'].split(', ')), key=sorting, reverse=True),
             lambda y: 1 if y == x['name'].strip() else 0
         ),
         axis=1
