@@ -17,7 +17,8 @@ Solution of Spain AI NLP Challenge 2020
 * Extract each archive to the `checkpoint/` directory
 
 ## Running the model in the interactive mode
-* run `python3 generate.py --mode=interactive`
+Use parameter `--mode=interactive` of `generate.py` script to interact with the model:
+* run `python3 generate.py --model=2.1 --mode=interactive`
 * type in item description after the `(>^_^)>` prompt
 * if answer generation takes too long, reduce `NUMBER_OF_ANSWERS_GENERATED` constant in `generate.py`
 
@@ -35,6 +36,12 @@ for I in {1..5}; do python3 ./generate.py --model=2.1 --benchmark=$I --gpu=0; do
 for I in {6..10}; do python3 ./generate.py --model=2.1 --benchmark=$I --gpu=1; done
 ```
 * Refer to `model_benchmark.ipynb` in order to analyze quality of generated answers
+
+## Generating `submission.csv` file
+
+* Use `generate.py` with `--model=n` parameter to generate `submission.csv` file with model `n`
+
+Example: `python3 generate.py --model=2.1`
 
 ## Resources
 [Notebook about training GPT2 in collab](https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce#scrollTo=LdpZQXknFNY3)
