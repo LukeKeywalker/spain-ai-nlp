@@ -8,6 +8,7 @@ Solution of Spain AI NLP Challenge 2020
 * `pip3 install tensorflow==1.15` or ` pip3 install tensorflow-gpu==1.15` for CUDA enabled GPUs
 * `pip3 install pandas`
 * `pip3 install numpy`
+* `pip3 install nltk`
 * `pip3 install alive-progress`
 
 ## Installing finetuned GPT-2 model
