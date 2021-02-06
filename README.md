@@ -5,14 +5,16 @@ Solution of Spain AI NLP Challenge 2020
 
 * Python 3 installed
 * `pip3 install gpt-2-simple`
-* `pip3 install tensorflow==1.15` or ` pip3 install tensorflow-gpu==1.15` for CUDA gpus
+* `pip3 install tensorflow==1.15` or ` pip3 install tensorflow-gpu==1.15` for CUDA enabled GPUs
 * `pip3 install pandas`
+* `pip3 install numpy`
 * `pip3 install alive-progress`
 
-## Running the model in the interactive mode
+## Installing finetuned GPT-2 model
+* [Get finetuned models here](https://drive.google.com/drive/folders/1AYZdN7lrQj6zFdVpFtaX3afVzZ9Iw7Fz?usp=sharing)
+* Extract each archive to the `checkpoint/` directory
 
-* [Download one of the fine tuned models](https://drive.google.com/drive/folders/1AYZdN7lrQj6zFdVpFtaX3afVzZ9Iw7Fz?usp=sharing)
-* Extract model archive to the `checkpoint/` directory
+## Running the model in the interactive mode
 * run `python3 generate.py --mode=interactive`
 * type in item description after the `(>^_^)>` prompt
 * if answer generation takes too long, reduce `NUMBER_OF_ANSWERS_GENERATED` constant in `generate.py`
