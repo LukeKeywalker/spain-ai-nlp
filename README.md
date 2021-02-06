@@ -21,6 +21,21 @@ Solution of Spain AI NLP Challenge 2020
 * type in item description after the `(>^_^)>` prompt
 * if answer generation takes too long, reduce `NUMBER_OF_ANSWERS_GENERATED` constant in `generate.py`
 
+## Evaluating model performance
+
+* Use `generate.py` with the `--benchmark=n` parameter to generate answers for testset `n`. Examples:
+
+Generate answers of `model-2.1` for all 10 test datasets:
+```
+for I in {1..10}; do python3 ./generate.py --model=2.1 --benchmark=$I; done
+```
+Generate answers of `model-2.1` for all 10 test datasets in parallel on two GPUs (run in separate terminal sessions):
+```
+for I in {1..5}; do python3 ./generate.py --model=2.1 --benchmark=$I --gpu=0; done
+for I in {6..10}; do python3 ./generate.py --model=2.1 --benchmark=$I --gpu=1; done
+```
+* Refer to `model_benchmark.ipynb` in order to analyze quality of generated answers
+
 ## Resources
 [Notebook about training GPT2 in collab](https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce#scrollTo=LdpZQXknFNY3)
 
