@@ -61,9 +61,9 @@ def evaluate_test_set(test_set, sorting):
 
     scored_test_set = create_test_set_dataframe(names, descriptions, answers)
 
-    scored_test_set['score'] = scored_test_set[['name', 'answers']].apply(
+    scored_test_set['score'] = scored_test_set[['name', 'description', 'answers']].apply(
         lambda x: discountedCumulativeGain(
-            sorted(list(x['answers'].split(', ')), key=sorting, reverse=True),
+            sorted(list(x['answers'].split(', ')), key=lambda name: sorting(name, x['description']), reverse=True),
             lambda y: 1 if y == x['name'].strip() else 0
         ),
         axis=1
