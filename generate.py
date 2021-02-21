@@ -183,7 +183,7 @@ def load_model(model, checkpoint_directory='checkpoint'):
     global tf_session
     gpt2.load_gpt2(
         tf_session,
-        checkpoint_dir='checkpoint',
+        checkpoint_dir=checkpoint_directory,
         run_name='model-{}'.format(model),
         multi_gpu=False
     )
