@@ -214,16 +214,16 @@ def generate_benchmark_answers(model, benchmark_set):
         generate_answers_file(model, test_descriptions_file_path, answer_file_path)
 
 
-def init_model_session(checkpoint_directory='checkpoint'):
+def init_model_session(model, checkpoint_directory='checkpoint'):
     global tf_session
     tf_session = gpt2.start_tf_sess()
-    load_model(args.model, checkpoint_directory)
+    load_model(model, checkpoint_directory)
 
 
 if __name__ == '__main__':
     args = parse_arguments()
     select_cuda_device(args.gpu)
-    init_model_session()
+    init_model_session(args.model)
     if args.mode == 'interactive':
         run_interactive(args.model)
     elif args.benchmark is not None:
