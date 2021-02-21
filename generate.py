@@ -161,7 +161,7 @@ def generate_answers_file(model, test_descriptions_file_path, answer_file_path, 
     """
     descriptions = load_test_descriptions(test_descriptions_file_path)
     with ap.alive_bar(len(descriptions), bar='filling') as bar:
-        names = [generate_item_name_candidates(model, description, index, bar)
+        names = [generate_item_name_candidates(model, description, index, bar, checkpoint_directory)
                  for (index, description)
                  in enumerate(descriptions)]
 
