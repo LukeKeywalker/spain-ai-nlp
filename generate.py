@@ -179,7 +179,7 @@ def parse_arguments():
     return arg_parser.parse_args()
 
 
-def load_model(model):
+def load_model(model, checkpoint_directory='checkpoint'):
     gpt2.load_gpt2(
         tf_session,
         checkpoint_dir='checkpoint',
