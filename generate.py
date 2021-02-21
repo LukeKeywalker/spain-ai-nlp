@@ -213,17 +213,15 @@ def generate_benchmark_answers(model, benchmark_set):
         generate_answers_file(model, test_descriptions_file_path, answer_file_path)
 
 
-args = parse_arguments()
-
-select_cuda_device(args.gpu)
-
-tf_session = gpt2.start_tf_sess()
-load_model(args.model)
-
-if args.mode == 'interactive':
-    run_interactive(args.model)
-elif args.benchmark is not None:
-    benchmark_set = parse_benchmark_set(args.benchmark)
-    generate_benchmark_answers(args.model, benchmark_set)
-else:
-    generate_answers_file(args.model, 'data/test_descriptions.csv', 'submission/submission.csv')
+if __name__ == '__main__':
+    args = parse_arguments()
+    select_cuda_device(args.gpu)
+    tf_session = gpt2.start_tf_sess()
+    load_model(args.model)
+    if args.mode == 'interactive':
+        run_interactive(args.model)
+    elif args.benchmark is not None:
+        benchmark_set = parse_benchmark_set(args.benchmark)
+        generate_benchmark_answers(args.model, benchmark_set)
+    else:
+        generate_answers_file(args.model, 'data/test_descriptions.csv', 'submission/submission.csv')
