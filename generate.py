@@ -214,11 +214,16 @@ def generate_benchmark_answers(model, benchmark_set):
         generate_answers_file(model, test_descriptions_file_path, answer_file_path)
 
 
+def init_model_session():
+    global tf_session
+    tf_session = gpt2.start_tf_sess()
+    load_model(args.model)
+
+
 if __name__ == '__main__':
     args = parse_arguments()
     select_cuda_device(args.gpu)
-    tf_session = gpt2.start_tf_sess()
-    load_model(args.model)
+    init_model_session()
     if args.mode == 'interactive':
         run_interactive(args.model)
     elif args.benchmark is not None:
