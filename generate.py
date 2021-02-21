@@ -24,7 +24,7 @@ def select_cuda_device(device_index=0):
     os.environ["CUDA_VISIBLE_DEVICES"] = str(device_index)
 
 
-def generate_model_outputs(model, input):
+def generate_model_outputs(model, input, checkpoint_dir='checkpoint'):
     """
     Generates NUMBER_OF_ANSWERS_GENERATED answers
     using gpt-2 model loaded in TF Session from
@@ -42,6 +42,7 @@ def generate_model_outputs(model, input):
         batch_size=32,
         prefix=description,
         run_name="model-{}".format(model),
+        checkpoint_dir=checkpoint_dir,
         return_as_list=True,
         seed=666
     )
@@ -149,7 +150,7 @@ def generate_item_name_candidates(model, description, step, on_finished, checkpo
     :return:
     """
     reset_model(model, step, checkpoint_directory)
-    outputs = generate_model_outputs(model, description)
+    outputs = generate_model_outputs(model, description, checkpoint_directory)
     answers = select_answers(outputs, description)
     on_finished()
     return ', '.join(answers)
