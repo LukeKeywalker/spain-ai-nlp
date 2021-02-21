@@ -180,6 +180,7 @@ def parse_arguments():
 
 
 def load_model(model, checkpoint_directory='checkpoint'):
+    global tf_session
     gpt2.load_gpt2(
         tf_session,
         checkpoint_dir='checkpoint',
