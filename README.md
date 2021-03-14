@@ -37,6 +37,12 @@ for I in {6..10}; do python3 ./generate.py --model="2.1" --benchmark=$I --gpu=1;
 ```
 * Refer to [model_benchmark](https://github.com/LukeKeywalker/spain-ai-nlp/blob/main/model_benchmark.ipynb) notebook in order to analyze quality of generated answers
 
+## Sorting the answers of the submission
+There are different sorting options available that allow the user to combine scores using different criteria:
+1. length of the candidate
+2. number of words of the candidate
+3. tfidf score obtained by comparing with the key words of the corresponding description
+
 ## Generating `submission.csv` file
 
 * Use `generate.py` with `--model=n` parameter to generate `submission.csv` file with model `n`
