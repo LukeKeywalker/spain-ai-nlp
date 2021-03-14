@@ -1,8 +1,9 @@
 import csv
 import os
-
+import re
+import nltk
 import pandas as pd
-
+from nltk.stem.porter import PorterStemmer
 
 def load_dataset():
     """
@@ -12,6 +13,22 @@ def load_dataset():
     column_names = ['name', 'description']
     data = pd.read_csv('data/train.csv', names=column_names, header=None)[1:]
     return data
+
+def clean_and_tokenize(input):
+    """
+    Cleans the input and returns a list of tokens (words).
+    Step needed to perform a tfidf analysis
+    """
+    if input.startswith('"') and input.endswith('"'):
+        input = input[1:-1]
+
+    input = input.replace('<br>', '') \
+        .replace('</br>', '') \
+        .replace('<br/>', '') \
+        .replace('|', '') \
+        .upper()
+    words = re.sub(r"[^A-Za-z0-9\-]", " ", input).lower()
+    return words
 
 
 def sanitize_input(input):
@@ -28,6 +45,25 @@ def sanitize_input(input):
         .replace('|', '') \
         .upper()
 
+def tokenize(text):
+    tokens = nltk.word_tokenize(text)
+    stems = []
+    for item in tokens:
+        stems.append(PorterStemmer().stem(item))
+    return stems
+
+def clean_tokenize_answer(answer):
+    '''
+    Method to remove non alphanumeric characters, to transform to lowercase
+    and to stem the words. It returns the list of words per answer.
+    '''
+    list_answers = answer.split(',')
+    clean_answers = []
+    for a in list_answers:
+        ca = clean_and_tokenize(a)
+        ca = tokenize(ca)
+        clean_answers.append(ca)
+    return clean_answers
 
 def save_dataframe_column(data, column_name, file_path, header=False):
     """
